@@ -11,6 +11,15 @@ export interface Directors extends Teacher {
   numberOfReports: number;
 }
 
+export interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+export const printTeacher: printTeacherFunction = (
+  firstName: string,
+  lastName: string,
+): string => `${firstName.charAt(0)}. ${lastName}`;
+
 const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
