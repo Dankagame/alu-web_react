@@ -39,3 +39,33 @@ const director1: Directors = {
 };
 
 console.log(director1);
+
+export interface StudentConstructor {
+  new(firstName: string, lastName: string): StudentClassInterface;
+}
+
+export interface StudentClassInterface {
+  displayName(): string;
+  workOnHomework(): string;
+}
+
+export class StudentClass implements StudentClassInterface {
+  constructor(
+    private readonly firstName: string,
+    private readonly lastName: string,
+  ) {}
+
+  displayName(): string {
+    return this.firstName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+}
+
+const studentConstructor: StudentConstructor = StudentClass;
+const student: StudentClassInterface = new studentConstructor('Jane', 'Doe');
+
+console.log(student.displayName());
+console.log(student.workOnHomework());
